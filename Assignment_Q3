@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+class book
+{
+	public:
+		string title;
+		string author;
+		string isbn;
+		double price;
+		int stock;
+		void getdetails()
+		{
+			cout<<"enter title\n";
+			getline(cin,title);
+			cout<<"enter author\n";
+			getline(cin,author);
+			cout<<"enter isbn\n";
+			getline(cin,isbn);
+			cout<<"enter price\n";
+			cin>>price;
+			cout<<"enter stock\n";
+			cin>>stock;
+		}
+};
+int main()
+{
+	book b;
+	b.getdetails();
+	fstream file;
+	file.open("book",ios::out|ios::binary);
+	file.write((char*)&b, sizeof(b));
+    file.close();
+	
+}
