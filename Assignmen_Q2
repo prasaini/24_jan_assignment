@@ -1,0 +1,14 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+	fstream file;
+	string s;
+	file.open("abc",ios::in);
+	while(file>>s)
+	{
+		cout<<s<<" ";
+	}
+	file.close();
+}
