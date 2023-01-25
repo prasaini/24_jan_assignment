@@ -1,0 +1,51 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+class book
+{
+	public:
+		string title;
+		string author;
+		string isbn;
+		double price;
+		int stock;
+		void getdetails()
+		{
+			cout<<"enter title\n";
+			getline(cin,title);
+			cout<<"enter author\n";
+			getline(cin,author);
+			cout<<"enter isbn\n";
+			getline(cin,isbn);
+			cout<<"enter price\n";
+			cin>>price;
+			cout<<"enter stock\n";
+			cin>>stock;
+		}
+};
+
+
+int main() 
+{
+	book b;
+    ifstream inFile;
+    inFile.open("book", ios::binary);
+
+    if (!inFile) {
+        cout << "Error opening file" << endl;
+        return 1;
+    }
+
+    while (inFile.read((char*)&b, sizeof(b))) {
+        cout << "Title: " << b.title << endl;
+        cout << "Author: " << b.author << endl;
+        cout << "ISBN: " << b.isbn << endl;
+        cout << "Price: " << b.price << endl;
+        cout << "Stock: " << b.stock << endl;
+        cout << endl;
+    }
+
+    inFile.close();
+
+    return 0;
+}
