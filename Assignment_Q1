@@ -1,0 +1,27 @@
+
+//Q1
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+class student
+{
+	public:
+		string name;
+		int age;
+		double grade;
+		
+		student(string a,int b, double c)
+		{
+			name=a;
+			age=b;
+			grade=c;
+		}
+};
+int main()
+{
+	student s("abc",21,92.04);
+	fstream file;
+	file.open("abc",ios::out);
+	file<<s.name<<" "<<s.age<<" "<<s.grade;
+}
